@@ -9,8 +9,9 @@ function TodoItem(props) {
   const [isDone, setIsDone] = useState(false);
 
   return (
-    <div>
+    <div className="flex justify-center w-1/3 mt-3 mx-auto relative">
       <input
+        className="hidden"
         type="checkbox"
         id={elmId}
         checked={isDone}
@@ -20,8 +21,18 @@ function TodoItem(props) {
         }}
       />
 
-      <label htmlFor={elmId}>{props.todoObj.text}</label>
-      <button onClick={() => dispatch(removeTodo(index))}>X</button>
+      <label
+        className="cursor-pointer bg-gray-100 w-full px-3 py-1.5"
+        htmlFor={elmId}
+      >
+        {props.todoObj.text}
+      </label>
+      <button
+        className=" bg-red-600 w-8 h-full flex items-center justify-center absolute right-0 top-0 p-2"
+        onClick={() => dispatch(removeTodo(index))}
+      >
+        X
+      </button>
     </div>
   );
 }
